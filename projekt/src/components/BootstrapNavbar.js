@@ -1,16 +1,11 @@
 import React from 'react'
-import {store} from "../actions/store";
-import {Provider} from "react-redux";
 import { BrowserRouter as Router, Switch, Route, Link, useParams} from "react-router-dom";
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
-import IconButton from '@material-ui/core/IconButton';
 import { makeStyles } from '@material-ui/core/styles';
-import Cars from './Cars';
-import Clients from './Clients';
-import Borrows from './Borrows';
+
 
 const useStyles = makeStyles((theme) => ({
     root: {

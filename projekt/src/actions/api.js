@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const baseUrl="https://localhost:44355/api/"
+export const baseUrl="https://localhost:44355/api/"
 
 export default{
     cars(url=baseUrl+'Cars/'){
