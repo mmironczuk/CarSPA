@@ -2,7 +2,6 @@ import { TextField, Typography, Button, FormControl, InputLabel, Select, MenuIte
 import axios from 'axios';
 import { useState } from 'react';
 import styled from 'styled-components';
-import { baseUrl } from '../actions/api';
 
 const Item = styled.div`
     margin: 5px 0 5px 0;
