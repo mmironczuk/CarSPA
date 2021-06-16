@@ -22,22 +22,22 @@ function validate(values) {
 
 export const BorrowForm = ({initialValues, onChange, onSubmit, clients, cars }) => {
 
-    const [carId, clientId, date] = initialValues;
+    const [carId, clientId] = initialValues;
 
     const handleCarChange = (event) => {
-        onChange([event.target.value, clientId, date])
+        onChange([event.target.value, clientId])
     }
 
     const handleClientChange = (event) => {
-        onChange([carId, event.target.value, date])
+        onChange([carId, event.target.value])
     }
 
-    const handleDateChange = (event) => {
+    /*const handleDateChange = (event) => {
         onChange([carId, clientId, event.target.value])
-    }
+    }*/
 
     const handleSubmitForm = (event) => {
-        if (validate([carId, clientId, date])) {
+        if (validate([carId, clientId])) {
             onSubmit()
         }
         event.preventDefault()
@@ -50,7 +50,7 @@ export const BorrowForm = ({initialValues, onChange, onSubmit, clients, cars }) 
                 <Item>
                 <FormControl style={{ width: '100%' }} variant="outlined">
                     <InputLabel>Client</InputLabel>
-                        <Select onChange={handleClientChange} name="clientId" onChange={handleClientChange}>
+                        <Select onChange={handleClientChange} name="clientId" value={clientId} onChange={handleClientChange}>
                             {
                                 clients.map((client, index) => {
                                     return (
@@ -64,7 +64,7 @@ export const BorrowForm = ({initialValues, onChange, onSubmit, clients, cars }) 
                 <Item>
                 <FormControl style={{ width: '100%' }} variant="outlined">
                     <InputLabel>Cars</InputLabel>
-                        <Select onChange={handleCarChange} name="carId" onChange={handleCarChange}>
+                        <Select onChange={handleCarChange} name="carId" value={carId} onChange={handleCarChange}>
                             {
                                 cars.map((car, index) => {
                                     return (
@@ -75,9 +75,7 @@ export const BorrowForm = ({initialValues, onChange, onSubmit, clients, cars }) 
                         </Select>
                 </FormControl>
                 </Item>
-                <Item>
-                    <TextField type="date" onChange={handleDateChange} value={date} variant="outlined" />
-                </Item>
+
                 <Button type='submit' variant="contained" color="secondary">
                     Submit
                 </Button>

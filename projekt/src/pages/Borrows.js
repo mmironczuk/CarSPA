@@ -36,7 +36,7 @@ const Borrows = () => {
     const handleChange = (data) => setForm(data)
 
     const handleEdit = (borrow, index) => {
-        setForm([borrow.carId, borrow.clientId, borrow.date])
+        setForm([borrow.carId, borrow.clientId])
         setUpdateId([borrow.borrowId, index])
     }
 
@@ -53,13 +53,13 @@ const Borrows = () => {
         axios.post(baseUrl + 'Borrows', {
             carId: carId,
             clientId: clientId,
-            date:date
+            date: new Date()
         })
             .then((resp) => resp.data)
             .then(borrow => {
                 setBorrows([...borrows, borrow])
             })
-        setForm(['', '', ''])
+        setForm(['', ''])
     }
 
     const handleSubmitUpdate = () => {
@@ -67,7 +67,7 @@ const Borrows = () => {
             borrowId: updateId,
             carId: carId,
             clientId: clientId,
-            date:date
+            date:new Date()
         }
         axios.put(baseUrl + `Borrows/${updateId}`, newBorrow)
             .then(borrow => {
@@ -76,7 +76,7 @@ const Borrows = () => {
                 setBorrows(tmp)
             })
         setUpdateId([null, null]) // create
-        setForm(['', '', ''])
+        setForm(['', ''])
     }
 
 
@@ -88,7 +88,7 @@ const Borrows = () => {
                     cars={cars} clients={clients}
                     onChange={handleChange}
                     onSubmit={updateId ? handleSubmitUpdate : handleSubmitCreate}
-                    initialValues={[carId, clientId, date]}/>
+                    initialValues={[carId, clientId]}/>
             </Grid>
             <Grid item xs={6}>
                 <TableContainer>

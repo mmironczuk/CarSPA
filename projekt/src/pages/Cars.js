@@ -68,7 +68,6 @@ const Cars = () => {
         setForm(['', '', '', '', ''])
     }
 
-
     return (
 
         <Grid container>

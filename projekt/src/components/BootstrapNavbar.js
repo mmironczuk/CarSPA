@@ -42,39 +42,6 @@ export default function BootstrapNavbar(){
             </Toolbar>
             </AppBar>
             </div>
-             /*<div>
-                <div className="row">
-                    <div className="col-md-12">
-                        <Navbar bg="dark" variant="dark" expand="lg" sticky="top">
-                        <Navbar.Brand>React Bootstrap Navbar</Navbar.Brand>
-                            <Router>
-                                <Nav>
-                                <Link to="/Cars">Cars</Link>
-                                        <Route exact path="/Cars" component={Cars}>
-                                        </Route>
-                                </Nav>
-                                <Nav>
-                                <Link to="/Clients">Clients</Link>
-                                        <Route exact path="/Clients" component={Clients}>
-                                        </Route>
-                                </Nav>
-                                <Nav>
-                                <Link to="/Borrows">Borrows</Link>
-                                        <Route exact path="/Borrows" component={Borrows}>
-                                        </Route>
-                                </Nav>
-
-
-                                    <Form inline>
-                                    <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-                                    <Button variant="outline-success">Search</Button>
-                                    </Form>
-                            <br />
-                        </Router>
-                        </Navbar>
-                    </div>
-                </div>
-            </div>*/
         )  
 }
 
