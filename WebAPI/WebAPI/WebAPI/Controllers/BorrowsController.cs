@@ -32,7 +32,7 @@ namespace WebAPI.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<Borrow>> GetBorrow(int id)
         {
-            var borrow = await _context.Borrow.FindAsync(id);
+            var borrow = await _context.Borrow.Include(x => x.Car).Include(x => x.Client).FirstOrDefaultAsync(x=>x.BorrowId==id);
 
             if (borrow == null)
             {
@@ -81,7 +81,9 @@ namespace WebAPI.Controllers
             _context.Borrow.Add(borrow);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetBorrow", new { id = borrow.BorrowId }, borrow);
+            var borr = await _context.Borrow.Include(x => x.Car).Include(x => x.Client).FirstOrDefaultAsync(x => x.BorrowId == borrow.BorrowId);
+
+            return Ok("GetBorrow");
         }
 
         // DELETE: api/Borrows/5
